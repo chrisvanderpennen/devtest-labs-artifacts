@@ -2,7 +2,7 @@
 # Studio Online account, and adds to the specified build agent pool
 [CmdletBinding()]
 param(
-    [string] $tfsAccount,
+    [string] $tfsUrl,
     [string] $tfsUserPassword,
     [string] $agentName,
     [string] $agentNameSuffix,
@@ -272,7 +272,7 @@ trap
 try
 {
     Write-Host 'Validating parameters'
-    Test-Parameters -TfsUrl $tfsAccount -WorkDirectory $workDirectory
+    Test-Parameters -TfsUrl $tfsUrl -WorkDirectory $workDirectory
 
     Write-Host 'Preparing agent installation location'
     $agentInstallPath = New-AgentInstallPath -DriveLetter $driveLetter -AgentName $agentName
