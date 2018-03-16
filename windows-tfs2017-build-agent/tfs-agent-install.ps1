@@ -133,7 +133,7 @@ function Download-AgentPackage
     New-Item -ItemType Directory -Force -Path $agentTempFolderName | Out-Null
 
     $agentPackagePath = "$agentTempFolderName\agent.zip"
-    $tfsAgentUrl = "https://go.microsoft.com/fwlink/?linkid=851123"
+    $tfsAgentUrl = "https://go.microsoft.com/fwlink/?linkid=858950"
 
     $maxRetries = 3
     $retries = 0
