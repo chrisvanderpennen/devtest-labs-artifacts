@@ -141,6 +141,7 @@ function Download-AgentPackage
     {
         try
         {
+            [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
             Invoke-WebRequest -Uri $tfsAgentUrl -Method Get -OutFile "$agentPackagePath" | Out-Null
             break
         }
