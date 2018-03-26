@@ -15,7 +15,7 @@ Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "docker-pull"
 [System.Environment]::SetEnvironmentVariable('TEMP', 'D:\Temp', 'Machine')
 [System.Environment]::SetEnvironmentVariable('TMP', 'D:\Temp', 'Machine')
 
-Add-MpPreference -ExclusionPath D:\
+set-mppreference -DisableRealtimeMonitoring $true
 
 restart-service docker
 docker pull microsoft/windowsservercore:latest
