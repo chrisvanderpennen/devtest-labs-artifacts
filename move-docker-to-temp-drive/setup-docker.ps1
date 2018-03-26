@@ -9,7 +9,8 @@ $encoding = new-object System.Text.UTF8Encoding -ArgumentList @($false)
 
 $action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument '-NoProfile -WindowStyle Hidden -command "& {if ((get-service docker).Status -ne ''Running'') { Start-Sleep -Seconds 1 }; docker pull microsoft/windowsservercore:latest; docker pull microsoft/nanoserver:latest}"'
 $trigger = New-ScheduledTaskTrigger -AtStartup
-Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "docker-pull" -Description "Pull server core and nanoserver base images"
+$principal = New-ScheduledTaskPrincipal -LogonType S4U -UserId 'NT AUTHORITY\SYSTEM'
+Register-ScheduledTask -Action $action -Trigger $trigger -TaskName "docker-pull" -Description "Pull server core and nanoserver base images" -Principal $principal
 
 [System.Environment]::SetEnvironmentVariable('TEMP', 'D:\Temp', 'Machine')
 [System.Environment]::SetEnvironmentVariable('TMP', 'D:\Temp', 'Machine')
