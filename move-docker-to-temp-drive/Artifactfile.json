@@ -1,0 +1,21 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+    "title": "Move Docker to temp drive",
+    "publisher": "Chris van der Pennen",
+    "description": "Sets up Docker to run from the temp drive, and sets up a scheduled task to pull Windows base layers after boot",
+    "tags": [
+        "Windows"
+    ],
+    "iconUri": "https://www.visualstudio.com/favicon.ico",
+    "targetOsType": "Windows",
+    "parameters": {
+        "Url": {
+            "type": "string",
+            "displayName": "URL",
+            "description": "The url of the server to trust."
+        }
+    },
+    "runCommand": {
+        "commandToExecute": "powershell.exe -ExecutionPolicy bypass \"& ./setup-docker.ps1\""
+    }
+}
