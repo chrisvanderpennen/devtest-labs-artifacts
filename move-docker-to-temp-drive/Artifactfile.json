@@ -8,13 +8,7 @@
     ],
     "iconUri": "https://www.visualstudio.com/favicon.ico",
     "targetOsType": "Windows",
-    "parameters": {
-        "Url": {
-            "type": "string",
-            "displayName": "URL",
-            "description": "The url of the server to trust."
-        }
-    },
+    "parameters": {},
     "runCommand": {
         "commandToExecute": "powershell.exe -ExecutionPolicy bypass \"& ./setup-docker.ps1\""
     }
