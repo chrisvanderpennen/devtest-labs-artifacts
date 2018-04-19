@@ -1,0 +1,15 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2016-11-28/dtlArtifacts.json",
+    "title": "Prepare Docker",
+    "publisher": "Chris van der Pennen",
+    "description": "Disables AV and pulls some base images",
+    "tags": [
+        "Windows"
+    ],
+    "iconUri": "https://www.visualstudio.com/favicon.ico",
+    "targetOsType": "Windows",
+    "parameters": {},
+    "runCommand": {
+        "commandToExecute": "powershell.exe -ExecutionPolicy bypass \"& ./setup-docker.ps1\""
+    }
+}
