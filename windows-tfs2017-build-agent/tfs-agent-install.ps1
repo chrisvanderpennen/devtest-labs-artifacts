@@ -212,6 +212,7 @@ function Extract-AgentPackage
         [string] $PackagePath,
         [string] $Destination
     )
+    Remove-Item -r -force $Destination
   
     Add-Type -AssemblyName System.IO.Compression.FileSystem 
     [System.IO.Compression.ZipFile]::ExtractToDirectory("$PackagePath", "$Destination")
